@@ -11,7 +11,7 @@ git config core.hooksPath .githooks
 ## ファイルの置き場所
 
 ルートの `README.md` は GitHub のプロフィールに表示される。
-プロフィールに見せる必要のないファイル（ライセンス、仕様、ADR、CI）は `.github/` の下に置く。
+プロフィールに見せる必要のないファイル（ライセンス、仕様、ロードマップ、ADR、CI）は `.github/` の下に置く。
 `.githooks/` と `.gitignore` は、git が読む場所のためルートに置く。
 
 ## License
