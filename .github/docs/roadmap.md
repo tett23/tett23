@@ -7,4 +7,7 @@
 ## 予定
 
 - **peg-hs と Golem のインタラクティブデモ**：[peg-hs](https://github.com/tett23/peg-hs) と [Golem](https://github.com/tett23/golem) を、ブラウザで入力を変えながら試せるインタラクティブデモを実装する。
+  - peg-hs のデモでは、入力した文法から得た AST と、生成したコードを表示する。デフォルトのサンプルは JSON の文法とする。
+  - Golem のデモでは、青空文庫から取った適度に短いサンプルテキストを Golem で組み、ラスタライズ済みの画像をプレビューする。
 - **NablaSKK の紹介ページ**：[NablaSKK](https://github.com/tett23/NablaSKK)（AquaSKK の入力エンジンを Rust で再実装した SKK）の紹介ページを作る。デモは作らない。
+- **各ページの説明**：上のデモページと紹介ページには、どういう思想で作っているかと、先行ソフトウェアに対する優位性を説明する。
