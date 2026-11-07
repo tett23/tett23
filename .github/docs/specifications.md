@@ -16,6 +16,19 @@ tett23 の現行の仕様をまとめる。
 - CIの `adr` ジョブは adr-guard v0.10.0 のactionを使い、コミット済みのADRの変更、ADRの参照のリンク、ADRの番号の重複（`check-numbers`）を検査する（[ADR 0001](adr/0001-update-adr-guard-to-v0-10-0.md)）。
 - ADRの参照（`ADR 0001` の形）にはADRのファイルへのリンクを付ける。ほかのリポジトリのADRは、リンクのテキストごと外部リンクにする。
 
+## プロダクトのページ
+
+[ADR 0002](adr/0002-product-pages-on-github-pages.md) の基盤で、プロダクトのページをこのリポジトリの GitHub Pages に公開する。
+
+- 公開先は `https://tett23.github.io/tett23/` で、目次のページを置く。各ページは `nablaskk/`、`peg-hs/`、`golem/` の下に置く。
+- ソースは `.github/site/` に置く。フレームワークと npm の依存は使わず、HTML と CSS は手で書き、スクリプトは TypeScript（クラスを使わない）で書く。
+- Deno の設定は `.github/deno.json` にある。`deno task check`、`deno lint`、`deno fmt --check`、`deno task test` で検査する。
+- `.github/site/wasm.lock` に、取り込む wasm とデータのファイルを 1 行に 1 つ、`名前 URL SHA-256` で書く。`.github/scripts/fetch-assets.sh` が取ってきて SHA-256 を確かめ、合わなければ失敗してファイルを残さない。取ってきたファイル（`_assets/`）はコミットしない。
+- `.github/scripts/build-site.sh` が `_site/` を組み立てる。各ページの `main.ts` と `worker.ts` を `deno bundle` で 1 つの JS にし、`wasm.lock` のファイルを `_site/assets/` に置く。
+- `.github/scripts/check-site.ts` が、組み立てた `_site/` の同じサイトの参照先がすべてあることと、外部のオリジンからスクリプト、スタイルシート、フォントを読み込んでいないことを確かめる。
+- GHC の wasm のために、WASI preview1 のうち引数、環境変数、時計、乱数、標準出力と標準エラーへの書き込み、`proc_exit` だけを `.github/site/lib/wasi.ts` に実装する。ほかの関数は `ENOSYS` を返す。`wasm.lock` の wasm の import がこの範囲に収まることをテストで確かめる。
+- CI の `site` ジョブが、取り込み、検査、テスト、組み立て、組み立てたサイトの検査を行う。main への push では、`deploy` ジョブが `_site/` を GitHub Pages にデプロイする。
+
 ## 破棄したADR
 
 なし

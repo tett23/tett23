@@ -11,6 +11,19 @@ ADRの参照（`ADR 0001` の形）にはADRのファイルへのリンクを付
 
 設計判断は `.github/docs/adr/` にADRとして記録する。仕様は [docs/specifications.md](docs/specifications.md) を参照。
 
+## プロダクトのページ
+
+ページのソースは `.github/site/` にある（[ADR 0002](docs/adr/0002-product-pages-on-github-pages.md)）。Deno 2 が要る。
+
+```sh
+sh .github/scripts/fetch-assets.sh .github/site/wasm.lock _assets
+(cd .github && deno task check && deno lint && deno fmt --check && deno task test)
+sh .github/scripts/build-site.sh _assets _site
+deno run --allow-read .github/scripts/check-site.ts _site
+```
+
+手元で見るときは、`_site/` を静的なファイルのサーバーで配信する。wasm を `fetch` で読むので、`file://` では開けない。
+
 ## ファイルの置き場所
 
 ルートの `README.md` は GitHub のプロフィールに表示される。
