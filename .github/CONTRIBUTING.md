@@ -13,16 +13,12 @@ ADRの参照（`ADR 0001` の形）にはADRのファイルへのリンクを付
 
 ## プロダクトのページ
 
-ページのソースは `.github/site/` にある（[ADR 0002](docs/adr/0002-product-pages-on-github-pages.md)）。Deno 2 が要る。
+ページのソースは [tett23/tett23.github.io](https://github.com/tett23/tett23.github.io) にある（[ADR 0008](docs/adr/0008-move-product-pages-to-user-site.md)）。
+このリポジトリには、古い URL から転送するページ（`.github/redirects/`）だけがある。検査は次のとおり。
 
 ```sh
-sh .github/scripts/fetch-assets.sh .github/site/wasm.lock _assets
-(cd .github && deno task check && deno lint && deno fmt --check && deno task test)
-sh .github/scripts/build-site.sh _assets _site
-deno run --allow-read .github/scripts/check-site.ts _site
+deno test --allow-read .github/redirects
 ```
-
-手元で見るときは、`_site/` を静的なファイルのサーバーで配信する。wasm を `fetch` で読むので、`file://` では開けない。
 
 ## ファイルの置き場所
 
