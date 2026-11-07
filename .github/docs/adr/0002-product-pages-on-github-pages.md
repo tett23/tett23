@@ -1,6 +1,6 @@
 # ADR 0002: プロダクトのページを GitHub Pages で公開する基盤
 
-ステータス: 採択
+ステータス: 採択→公開先、URL、ソースの置き場所は [ADR 0008](0008-move-product-pages-to-user-site.md)
 
 ## 文脈
 

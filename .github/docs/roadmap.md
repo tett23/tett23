@@ -6,6 +6,4 @@
 
 ## 予定
 
-- **Golem のインタラクティブデモ**：[Golem](https://github.com/tett23/golem) を、ブラウザで入力を変えながら試せるインタラクティブデモを実装する。
-  - 青空文庫から取った適度に短いサンプルテキストを Golem で組み、ラスタライズ済みの画像をプレビューする。
-- **デモページの説明**：Golem のデモページには、どういう思想で作っているかと、先行ソフトウェアに対する優位性を説明する。
+- **Golem のインタラクティブデモ**：[tett23/tett23.github.io](https://github.com/tett23/tett23.github.io) に移した（[ADR 0008](adr/0008-move-product-pages-to-user-site.md)）。中身は [ADR 0005](adr/0005-golem-page.md) と [ADR 0006](adr/0006-golem-preview-at-300-dpi.md) で決めてあり、Golem の wasm のリリースを待っている。
