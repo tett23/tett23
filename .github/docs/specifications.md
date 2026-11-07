@@ -29,6 +29,18 @@ tett23 の現行の仕様をまとめる。
 - GHC の wasm のために、WASI preview1 のうち引数、環境変数、時計、乱数、標準出力と標準エラーへの書き込み、`proc_exit` だけを `.github/site/lib/wasi.ts` に実装する。ほかの関数は `ENOSYS` を返す。`wasm.lock` の wasm の import がこの範囲に収まることをテストで確かめる。
 - CI の `site` ジョブが、取り込み、検査、テスト、組み立て、組み立てたサイトの検査を行う。main への push では、`deploy` ジョブが `_site/` を GitHub Pages にデプロイする。
 
+### NablaSKK のページ
+
+`https://tett23.github.io/tett23/nablaskk/` に、NablaSKK の紹介ページを日本語で置く（[ADR 0003](adr/0003-nablaskk-page.md)、[ADR 0007](adr/0007-nablaskk-page-test-design-fixes.md)）。
+
+- 節は、ヒーロー（「言語の自由をとりもどそう」）、試す、キーを自分で決める、設定アプリ、なぜ SKK か、AquaSKK との違い、インストールの順に並ぶ。色は白の地にアイコンの紺と金で、見出しは明朝。
+- 「試す」は、NablaSKK のリリースの `nablaskk.wasm` と `SKK-JISYO.S` を読み込み、入力欄のキーイベントをエンジンに渡す。キーの値は NablaSKK の `KeyTranslator.swift` と同じにする。エンジンが使ったキーだけ `preventDefault` し、使わなかったキーは普通の入力欄として扱う（Tab はフォーカスを移す）。
+- 最初の 4 つの候補は入力欄の中に ▼ つきで出し、候補の一覧は `candidates.visible` が真のときだけ出す。注釈は `annotation` が null でないときだけ出す。単語登録は入力欄の中に出し、登録した語はメモリの上だけに置く。
+- 入力欄の横の欄でローマ字かなルールを足すと、すぐに反映し、行ごとに反映したか、反映しない理由を出す。初期値は `fj,、,、,､`。
+- OS の日本語入力がオンのときは警告を出し、物理キーボードのない端末では試せないことを出す。
+- 設定アプリの 6 ページのスクリーンショットを、タブと前後のボタンと左右の矢印キーで切りかえる。自動では送らない。スクリプトがなければ横にスクロールして見られる。撮り方は `.github/site/nablaskk/screenshots/README.md` にある。
+- AquaSKK との比較の表は、AquaSKK 4.7.3 の設定アプリで確かめたことだけを書く。
+
 ### peg-hs のページ
 
 `https://tett23.github.io/tett23/peg-hs/` に、peg-hs のページを英語で置く（[ADR 0004](adr/0004-peg-hs-page.md)）。

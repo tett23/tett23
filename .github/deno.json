@@ -5,7 +5,7 @@
   },
   "fmt": {
     "include": ["site/", "scripts/"],
-    "exclude": ["**/*.md", "**/*.html"],
+    "exclude": ["**/*.md", "**/*.html", "**/*.svg"],
     "lineWidth": 120
   },
   "lint": {
