@@ -29,6 +29,17 @@ tett23 の現行の仕様をまとめる。
 - GHC の wasm のために、WASI preview1 のうち引数、環境変数、時計、乱数、標準出力と標準エラーへの書き込み、`proc_exit` だけを `.github/site/lib/wasi.ts` に実装する。ほかの関数は `ENOSYS` を返す。`wasm.lock` の wasm の import がこの範囲に収まることをテストで確かめる。
 - CI の `site` ジョブが、取り込み、検査、テスト、組み立て、組み立てたサイトの検査を行う。main への push では、`deploy` ジョブが `_site/` を GitHub Pages にデプロイする。
 
+### peg-hs のページ
+
+`https://tett23.github.io/tett23/peg-hs/` に、peg-hs のページを英語で置く（[ADR 0004](adr/0004-peg-hs-page.md)）。
+
+- 節は、ヒーロー（左再帰）、3 つの柱、電卓の文法の 2 つの書き方、考え方と先行ソフトウェアとの比較、適合性、プレイグラウンド、インストールの順に並ぶ。
+- プレイグラウンドは、peg-hs のリリースの `peg-hs.wasm` を Web Worker で動かす。文法を書きかえてから 300 ミリ秒たったら `analyze` を呼び、文法の AST（たためる木）、生成したモジュール、生成した型をタブで切りかえて表示する。位置を持たない AST のノードは、近い祖先の位置を使う。
+- 診断は行と列つきで並べ、押すと文法の欄のその位置に移る。peg-hs の列はコードポイントで数えるので、UTF-16 の位置に直す。
+- サンプルは、`JsonGenerated.hpeg`（既定）、`Json.hpeg`、README の電卓の文法で、`peg-hs.wasm` と同じタグからコピーし、`.github/site/peg-hs/samples/README.md` に出どころを書く。
+- *Format* は `format` の結果で文法の欄を置きかえる。*Copy share link* は、文法を deflate で縮めて base64url にし、URL のフラグメント `#g=` に入れたリンクをコピーする。壊れたフラグメントのときは、既定のサンプルを表示し、壊れていたことを伝える。
+- 入力のテキストは解析しない。
+
 ## 破棄したADR
 
 なし
