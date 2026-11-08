@@ -1,6 +1,6 @@
 # ADR 0002: プロダクトのページを GitHub Pages で公開する基盤
 
-ステータス: 採択→公開先、URL、ソースの置き場所は [ADR 0008](0008-move-product-pages-to-user-site.md)
+ステータス: 採択→公開先、URL、ソースの置き場所は [ADR 0008](0008-move-product-pages-to-user-site.md)、Golem のページの言語は [tett23.github.io ADR 0001](https://github.com/tett23/tett23.github.io/blob/main/docs/adr/0001-golem-page-in-japanese-and-english.md)
 
 ## 文脈
 
