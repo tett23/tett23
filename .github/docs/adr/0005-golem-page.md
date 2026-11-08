@@ -1,6 +1,6 @@
 # ADR 0005: Golem のページとプレイグラウンド
 
-ステータス: 採択（未実装）→ラスタライズの解像度とラスタライズするページは [ADR 0006](0006-golem-preview-at-300-dpi.md)
+ステータス: 採択（未実装）→ラスタライズの解像度とラスタライズするページは [ADR 0006](0006-golem-preview-at-300-dpi.md)、言語、色、節の構成は [tett23.github.io ADR 0001](https://github.com/tett23/tett23.github.io/blob/main/docs/adr/0001-golem-page-in-japanese-and-english.md)
 
 ## 文脈
 
