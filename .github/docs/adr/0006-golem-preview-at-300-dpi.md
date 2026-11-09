@@ -1,6 +1,6 @@
 # ADR 0006: Golem のプレビューを 300 DPI でラスタライズする
 
-ステータス: 採択（未実装）
+ステータス: 採択→見開きの組み方（最初の見開きは 1 ページめだけ）は [tett23.github.io ADR 0003](https://github.com/tett23/tett23.github.io/blob/main/docs/adr/0003-golem-page-with-golem-wasm-v0-1-0-rc4.md)
 
 ## 文脈
 
