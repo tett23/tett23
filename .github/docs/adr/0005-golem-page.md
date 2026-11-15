@@ -1,6 +1,6 @@
 # ADR 0005: Golem のページとプレイグラウンド
 
-ステータス: 採択→ラスタライズの解像度とラスタライズするページは [ADR 0006](0006-golem-preview-at-300-dpi.md)、言語、色、節の構成は [tett23.github.io ADR 0001](https://github.com/tett23/tett23.github.io/blob/main/docs/adr/0001-golem-page-in-japanese-and-english.md)、取り込む版、入力のファイル、見開きの組み方は [tett23.github.io ADR 0003](https://github.com/tett23/tett23.github.io/blob/main/docs/adr/0003-golem-page-with-golem-wasm-v0-1-0-rc4.md)
+Status: superseded [{"by":[".github/docs/adr/0006-golem-preview-at-300-dpi.md"],"part":"ラスタライズの解像度とラスタライズするページ"},{"by":["https://github.com/tett23/tett23.github.io/blob/main/docs/adr/0001-golem-page-in-japanese-and-english.md"],"part":"言語、色、節の構成"},{"by":["https://github.com/tett23/tett23.github.io/blob/main/docs/adr/0003-golem-page-with-golem-wasm-v0-1-0-rc4.md"],"part":"取り込む版、入力のファイル、見開きの組み方"}]
 
 ## 文脈
 
