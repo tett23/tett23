@@ -13,7 +13,11 @@ tett23 の現行の仕様をまとめる。
 ## ADRの検査
 
 - コミット済みのADRの変更は、[adr-guard](https://github.com/tett23/adr-guard) で拒否する。pre-commit hook（`.githooks/pre-commit`）は `adr-guard pre-commit --allow-status --allow-links` を実行する。
-- CIの `adr` ジョブは adr-guard v0.10.0 のactionを使い、コミット済みのADRの変更、ADRの参照のリンク、ADRの番号の重複（`check-numbers`）を検査する（[ADR 0001](adr/0001-update-adr-guard-to-v0-10-0.md)）。
+- CIの `adr` ジョブは adr-guard v0.13.1 のactionを使い、コミット済みのADRの変更、ADRのステータスの行の状態遷移、ADRの参照のリンク、ADRの番号の重複（`check-numbers`）を検査する（[ADR 0001](adr/0001-update-adr-guard-to-v0-10-0.md)、[ADR 0009](adr/0009-update-adr-guard-to-v0-13-1.md)）。
+- ADRのステータスの行は、`Status: <トークン>` の形で書く。トークンは `proposed`、`accepted`、`accepted-pending`、`rejected`、`discarded`、`deprecated`、または `superseded [<変更の JSON 配列>]` である（[ADR 0009](adr/0009-update-adr-guard-to-v0-13-1.md)）。
+- ADRは、レビューを受けた後に `Status: proposed` でコミットし、次のコミットで `accepted` か `accepted-pending`（採択したが、まだ実装していない）にする。
+- 後のADRが一部を変えたADRは、ステータスを `superseded [{"part":"<部分名>","by":[".github/docs/adr/<後のADR>.md"]}]` にする。部分名は、変えられた部分の名前である。別のリポジトリのADRが変えたときは、`by` にそのADRの `https://` の URL を書く。修正の関係は `adr-guard trace` でたどれる。
+- pre-commit hook と CI は、ステータスの行の状態遷移を検査する。許されない遷移（新しいADRを `accepted` で足すなど）は、`--allow-status` を付けても通らない。
 - ADRの参照（`ADR 0001` の形）にはADRのファイルへのリンクを付ける。ほかのリポジトリのADRは、リンクのテキストごと外部リンクにする。
 
 ## プロダクトのページ
