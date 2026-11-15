@@ -1,6 +1,6 @@
 # ADR 0003: NablaSKK の紹介ページ
 
-ステータス: 採択→「試す」の wasm のテストと、候補と注釈の表示は [ADR 0007](0007-nablaskk-page-test-design-fixes.md)
+Status: superseded [{"by":[".github/docs/adr/0007-nablaskk-page-test-design-fixes.md"],"part":"「試す」の wasm のテストと、候補と注釈の表示"}]
 
 ## 文脈
 

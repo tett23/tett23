@@ -1,6 +1,6 @@
 # ADR 0008: プロダクトのページを tett23.github.io のリポジトリに移し、URL から /tett23/ を外す
 
-ステータス: 採択
+Status: accepted
 
 ## 文脈
 
